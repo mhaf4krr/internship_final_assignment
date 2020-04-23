@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>List View </title>
+  <!-- loader-->
+  <link href="/css/pace.min.css" rel="stylesheet"/>
+  <script src="/js/pace.min.js"></script>
+  <!--favicon-->
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <!-- simplebar CSS-->
+  <link href="/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="/css/sidebar-menu.css" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="/css/app-style.css" rel="stylesheet"/>
+  
+</head>
+
+<body class="bg-theme bg-theme2">
+
+<!-- start loader -->
+   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+   <!-- end loader -->
+
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <%= state %>
+            </div>
+        </div>
+    </div>
+  <!--Start sidebar-wrapper-->
+
+  <div class="col-12 col-lg-6" style="margin:auto auto">
+    <div class="card">
+        <div class="card-body">
+            <h5>Following is a list of Colleges in <%= state%> </h5>
+        </div>
+        <div class="table-responsive">
+                <table class="table align-items-center table-flush table-borderless  table-hover table-striped">
+                 <thead>
+                  <tr>
+                    
+                    <th>COLLEGE</th>
+                    <th>STATE</th>
+                    <th>CITY</th>
+                    <th>FOUNDED</th>
+                    
+                  </tr>
+                  </thead>
+                  <tbody id="table_body">
+                  
+                  
+
+                    <% colleges.forEach((college) => { %>
+                        <tr onclick="window.location.assign('/getCollegeData?college=<%= college.name %>')">
+                            <td> <%= college.name %> </td>
+                            <td> <%= college.state%>  </td>
+                            <td> <%= college.city %>  </td>
+                            <td> <%= college.year_founded %>  </td>
+                          </tr>
+                      <%})%>
+                  
+                </tbody>
+               </table>
+              </div>
+    </div>
+  </div>
+   
+  </div><!--End wrapper-->
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+	
+  <!-- simplebar js -->
+  <script src="/plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="/js/sidebar-menu.js"></script>
+  
+  <!-- Custom scripts -->
+  <script src="/js/app-script.js"></script>
+	
+</body>
+</html>
